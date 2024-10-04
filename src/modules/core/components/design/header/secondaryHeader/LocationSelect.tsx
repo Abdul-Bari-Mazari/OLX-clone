@@ -8,7 +8,7 @@ interface CityProps {
 }
 
 const cities = [
-  { key: '0', label: 'Azad Kashmir, Pakistan', },
+  { key: '0', label: 'Azad Kashmir, Pakistan' },
   { key: '1', label: 'Balochistan, Pakistan' },
   { key: '2', label: 'Islamabad, Pakistan' },
   { key: '3', label: 'Khyber Pakhtunkhwa, Pakistan' },
@@ -19,12 +19,10 @@ const cities = [
 export default function LocationSelect() {
   return (
     <Select
-    size='lg'
-    
-    aria-label='select'
+      size="lg"
+      aria-label="select"
       selectorIcon={<BsChevronDown />}
-      className="max-w-xs rounded border border-gray-300 p-1 text-xl font-bold"
-      defaultSelectedKeys={['']}
+      className="w-1/3 rounded-md border border-gray-300  text-2xl font-bold"
       placeholder="Pakistan"
       startContent={<SlLocationPin />}
     >
