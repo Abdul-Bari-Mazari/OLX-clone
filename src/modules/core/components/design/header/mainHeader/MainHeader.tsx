@@ -7,7 +7,9 @@ import SellButton from './SellButton';
 export default function MainHeader() {
   return (
     <>
-      <div className="max-w-7xl mx-auto flex flex-col items-start gap-5 sticky top-0">
+    <div className="w-full bg-white sticky top-0 z-[1000] py-5">
+
+      <div className="max-w-7xl mx-auto flex flex-col items-start gap-5 ">
         <HeaderTop />
         <div className="flex items-center gap-3 w-full">
           <LocationSelect />
@@ -16,6 +18,7 @@ export default function MainHeader() {
           <SellButton />
         </div>
       </div>
+    </div>
     </>
   );
 }
