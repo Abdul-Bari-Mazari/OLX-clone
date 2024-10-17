@@ -1,7 +1,7 @@
 import { BiHeart } from 'react-icons/bi';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import ProductSkeleton from './ProductSkeleton';
+import ProductSkeleton from '../ProductSkeleton';
 
 interface Product {
   title: string;
@@ -18,7 +18,7 @@ interface ResponseTypes {
   };
 }
 
-export function ProductCard() {
+export function MobileCard() {
   const [productData, setProductData] = useState<Product[]>([]);
   const [loader, setLoader] = useState<boolean>(true);
 
