@@ -22,7 +22,7 @@ export default function LocationSelect() {
       size="lg"
       aria-label="select"
       selectorIcon={<BsChevronDown />}
-      className="w-1/3 rounded-md border border-gray-300  text-2xl font-bold"
+      className="hidden sm:block sm:w-1/3 rounded-md border border-gray-300  text-2xl font-bold"
       placeholder="Pakistan"
       startContent={<SlLocationPin />}
     >

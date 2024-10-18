@@ -5,6 +5,9 @@ import FeatureImage from './modules/core/components/design/featureImage/FeatureI
 import AllCategoriesIcons from './modules/core/components/design/categories/categoryIcons/AllCategoriesIcons';
 import MobileSection from './modules/core/components/design/productSection/mobileSection/MobileSection';
 import CarSection from './modules/core/components/design/productSection/carSection/CarSection';
+import BikeSection from './modules/core/components/design/productSection/bikeSection/BikeSection';
+import CatSection from './modules/core/components/design/productSection/catsSection/CatSection';
+import Footer from './modules/core/components/design/footer/Footer';
 
 export default function App() {
   return (
@@ -17,6 +20,9 @@ export default function App() {
         <AllCategoriesIcons />
         <MobileSection />
         <CarSection />
+        <BikeSection />
+        <CatSection />
+        <Footer />
       </div>
     </>
   );

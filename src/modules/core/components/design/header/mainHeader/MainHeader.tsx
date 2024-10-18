@@ -11,7 +11,7 @@ export default function MainHeader() {
 
       <div className="max-w-7xl mx-auto flex flex-col items-start gap-5 ">
         <HeaderTop />
-        <div className="flex items-center gap-3 w-full">
+        <div className="flex flex-wrap md:flex-nowrap items-center gap-3 w-full">
           <LocationSelect />
           <SearchBar />
           <LoginBtn />

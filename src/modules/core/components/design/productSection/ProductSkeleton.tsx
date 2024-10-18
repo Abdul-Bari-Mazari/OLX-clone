@@ -6,7 +6,7 @@ export default function ProductSkeleton() {
     <div className="flex items-center justify-center gap-6">
 
     <Card
-      className="w-[280px] space-y-5 p-4"
+      className="w-[300px] space-y-5 p-4"
       radius="lg"
     >
       <Skeleton className="rounded-lg">
