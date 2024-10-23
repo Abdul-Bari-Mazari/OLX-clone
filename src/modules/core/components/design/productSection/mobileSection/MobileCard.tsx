@@ -2,6 +2,7 @@ import { BiHeart } from 'react-icons/bi';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import ProductSkeleton from '../ProductSkeleton';
+import { Link } from 'react-router-dom';
 
 interface Product {
   title: string;
@@ -54,17 +55,22 @@ export function MobileCard() {
 
           const shipTime: string = val.shippingInformation;
           const searchShipTime: number = shipTime.search(/\d/);
+        
 
-          const extractadTime = (a: number) => {
-            let adTimePassed: string = '';
-            if (searchShipTime !== -1) {
-              adTimePassed = shipTime.slice(searchShipTime, shipTime.length);
-              return adTimePassed;
-            } else {
-              adTimePassed = '1 week';
-              return adTimePassed;
-            }
-          };
+          let adTime: string = ""
+
+          let adTimePassed: string = '';
+          const extractadTime = (a: number): string => {
+              if (a !== -1) {
+                adTimePassed = shipTime.slice(a, shipTime.length);
+                return adTimePassed;
+              } else {
+                adTimePassed = '1 week';
+                return adTimePassed;
+              }
+            };
+
+            adTime = extractadTime(searchShipTime)
 
           const location: string[] = [
             'M.A. Jinnah Road, Karachi',
@@ -85,30 +91,55 @@ export function MobileCard() {
           const randomLocation: string =
             location[Math.floor(Math.random() * location.length)];
 
+          interface RouteDataTypes {
+            title: string;
+            image: string | undefined;
+            price: string;
+            description: string;
+            itemLocation: string;
+            shipTime: number;
+            timePassed: string,
+          }
+
+          const routeData: RouteDataTypes = {
+            title: val.title,
+            image: val.images[2],
+            price: priceWithComma,
+            description: itemDescription,
+            itemLocation: randomLocation,
+            shipTime: searchShipTime,
+            timePassed: adTime,
+          };
+
           return (
-            <div
-              key={index}
-              className="flex flex-col items-start-gap-3 rounded-sm border border-gray-300 max-w-[300px] cursor-pointer"
+            <Link
+              to="/details"
+              state={routeData}
             >
-              <img
-                className="rounded-sm h-36 object-contain"
-                src={val.images[2]}
-                alt=""
-              />
-              <div className="flex flex-col items-start p-4">
-                <div className="flex justify-between items-center w-full">
-                  <p className="font-bold">{`Rs ${priceWithComma}`}</p>
-                  <BiHeart className="text-2xl" />
-                </div>
-                <p className="whitespace-break-spaces">{shortDescription}</p>
-                <div className="flex flex-col gap-1 mt-3">
-                  <p className="text-sm text-gray-600">{randomLocation}</p>
-                  <p className="text-xs text-gray-600">{`${extractadTime(
-                    searchShipTime
-                  )} ago`}</p>
+              <div
+                key={index}
+                className="flex flex-col items-start-gap-3 rounded-sm border border-gray-300 max-w-[300px] cursor-pointer"
+              >
+                <img
+                  className="rounded-sm h-36 object-contain"
+                  src={val.images[2]}
+                  alt=""
+                />
+                <div className="flex flex-col items-start p-4">
+                  <div className="flex justify-between items-center w-full">
+                    <p className="font-bold">{`Rs ${priceWithComma}`}</p>
+                    <BiHeart className="text-2xl" />
+                  </div>
+                  <p className="whitespace-break-spaces">{shortDescription}</p>
+                  <div className="flex flex-col gap-1 mt-3">
+                    <p className="text-sm text-gray-600">{randomLocation}</p>
+                    <p className="text-xs text-gray-600">{`${extractadTime(
+                      searchShipTime
+                    )} ago`}</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           );
         })
       )}

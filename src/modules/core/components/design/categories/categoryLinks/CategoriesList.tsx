@@ -1,7 +1,7 @@
 import AllCategories from './AllCategoriesDropdown';
 import Category from './Category';
 
-export default function CatagoriesList() {
+export default function CategoriesList() {
   return (
     <>
       <div className="max-w-7xl mx-auto flex items-center gap-3 relative">

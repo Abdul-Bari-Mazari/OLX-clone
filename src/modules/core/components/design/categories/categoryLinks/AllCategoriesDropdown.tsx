@@ -15,7 +15,12 @@ export default function AllCategoriesDropdown() {
      justify-center items-center w-full md:block md:w-auto`}
     >
       <MegaMenu.DropdownToggle className="relative">
-        <p   onClick={menuHandles} className="font-semibold text-sm">ALL CATEGORIES</p>
+        <p
+          onClick={menuHandles}
+          className="font-semibold text-sm"
+        >
+          ALL CATEGORIES
+        </p>
         <BsChevronDown className="text-lg ml-2" />
       </MegaMenu.DropdownToggle>
       {menu && (
