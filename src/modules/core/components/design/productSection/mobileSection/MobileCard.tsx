@@ -11,6 +11,8 @@ interface Product {
   thumbnail: string;
   images: [string, string?, string?];
   shippingInformation: string;
+  brand: string,
+  category: string,
 }
 
 interface ResponseTypes {
@@ -27,6 +29,7 @@ export function MobileCard() {
     axios
       .get('https://dummyjson.com/products/category/smartphones')
       .then((response: ResponseTypes) => {
+        console.log(response.data.products)
         setProductData(response.data.products);
         setLoader(false);
       })
@@ -99,6 +102,8 @@ export function MobileCard() {
             itemLocation: string;
             shipTime: number;
             timePassed: string,
+            brand: string,
+            category: string,
           }
 
           const routeData: RouteDataTypes = {
@@ -109,6 +114,8 @@ export function MobileCard() {
             itemLocation: randomLocation,
             shipTime: searchShipTime,
             timePassed: adTime,
+            brand: val.brand,
+            category: val.category,
           };
 
           return (

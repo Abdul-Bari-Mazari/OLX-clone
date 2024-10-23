@@ -20,7 +20,7 @@ export default function PriceBox({
 
   return (
     <>
-      <div className="flex flex-col w-full p-4 border border-gray-300 mt-4">
+      <div className="flex flex-col w-full p-4 border border-gray-300 mt-4 rounded-md">
         <div className="flex justify-between items-center">
           <h1 className="text-4xl font-bold">{`Rs ${itemPrice}`}</h1>
           <div className="flex items-center gap-3 text-2xl">

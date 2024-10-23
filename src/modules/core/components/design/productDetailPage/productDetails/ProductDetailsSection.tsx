@@ -6,6 +6,8 @@ import CategoriesList from '../../categories/categoryLinks/CategoriesList';
 import { Divider } from '@nextui-org/react';
 import UserDetailSidebar from '../userDetails/UserDetailSidebar';
 import PriceBox from './PriceBox';
+import DetailsBox from './DetailsBox';
+import ProductDesciption from './ProductDescription';
 
 export default function ProductDetails() {
   const routeData = useLocation();
@@ -27,6 +29,8 @@ export default function ProductDetails() {
               shipTime={routeData.state.shipTime}
               timePassed={routeData.state.timePassed}
             />
+            <DetailsBox brand={routeData.state.brand} category={routeData.state.category} />
+            <ProductDesciption description={routeData.state.description} />
           </div>
           <UserDetailSidebar
             itemLocation={routeData.state.itemLocation}
