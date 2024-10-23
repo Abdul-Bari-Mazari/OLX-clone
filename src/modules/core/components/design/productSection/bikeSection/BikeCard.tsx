@@ -38,7 +38,6 @@ export default function BikeCard() {
         }
       )
       .then((response: ReponseType) => {
-        console.log(response.data);
         setResponseData(response.data);
         setLoader(false);
       })

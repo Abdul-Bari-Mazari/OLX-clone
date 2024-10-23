@@ -9,10 +9,12 @@ import HAVAL from '../../../../../../assets/cars/haval.jpg';
 import CULTUS from '../../../../../../assets/cars/maxresdefault.jpg';
 import { BiHeart } from 'react-icons/bi';
 import ProductSkeleton from '../ProductSkeleton';
+import { Link } from 'react-router-dom';
 
 interface Data {
   make: string;
   model: string;
+  class: string;
 }
 
 interface ReponseType {
@@ -89,7 +91,36 @@ export default function CarCard() {
 
           const randomLocation: string =
             location[Math.floor(Math.random() * location.length)];
+
+          const itemPrice: number = Math.floor(Math.random() * 20000000);
+          const noDecimalPrice: string = itemPrice.toFixed();
+          const priceWithComma: string =
+            Number(noDecimalPrice).toLocaleString();
+
+          interface RouteDataTypes {
+            title: string;
+            image: string | undefined;
+            price: string;
+            description: string;
+            itemLocation: string;
+            timePassed: string;
+            brand: string;
+            category: string;
+          }
+
+          const routeData: RouteDataTypes = {
+            title: key.model,
+            image: randomCarImages,
+            price: priceWithComma,
+            description: key.class,
+            itemLocation: randomLocation,
+            timePassed: randomTimePassed,
+            brand: key.make,
+            category: "Cars",
+          };
+
           return (
+            <Link to={'/details'} state={routeData}>
             <div
               key={index}
               className="flex flex-col items-start-gap-3 rounded-sm border border-gray-300 min-w-[300px] cursor-pointer"
@@ -98,12 +129,10 @@ export default function CarCard() {
                 className="rounded-sm h-36 object-cover"
                 src={randomCarImages}
                 alt=""
-              />
+                />
               <div className="flex flex-col items-start p-4">
                 <div className="flex justify-between items-center w-full">
-                  <p className="font-bold">{`Rs ${Math.floor(
-                    Math.random() * 20000000
-                  )}`}</p>
+                  <p className="font-bold">{`Rs ${priceWithComma}`}</p>
                   <BiHeart className="text-2xl" />
                 </div>
                 <p className="whitespace-break-spaces">{`${key.make}, ${key.model}`}</p>
@@ -113,6 +142,7 @@ export default function CarCard() {
                 </div>
               </div>
             </div>
+                </Link>
           );
         })
       )}
