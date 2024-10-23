@@ -10,10 +10,12 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import ProductSkeleton from '../ProductSkeleton';
 import { BiHeart } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 
 interface Data {
   make: string;
   model: string;
+  engine: string
 }
 
 interface ReponseType {
@@ -36,6 +38,7 @@ export default function BikeCard() {
         }
       )
       .then((response: ReponseType) => {
+        console.log(response.data);
         setResponseData(response.data);
         setLoader(false);
       })
@@ -62,6 +65,11 @@ export default function BikeCard() {
           ];
           const randomBikeImages: string =
             bikeImagesArr[Math.floor(Math.random() * bikeImagesArr.length)];
+
+          const itemPrice: number = Math.floor(Math.random() * 2000000);
+          const noDecimalPrice: string = itemPrice.toFixed();
+          const priceWithComma: string =
+            Number(noDecimalPrice).toLocaleString();
 
           const location: string[] = [
             'M.A. Jinnah Road, Karachi',
@@ -93,8 +101,32 @@ export default function BikeCard() {
 
           const randomLocation: string =
             location[Math.floor(Math.random() * location.length)];
+
+          interface RouteDataTypes {
+            title: string;
+            image: string | undefined;
+            price: string;
+            description: string;
+            itemLocation: string;
+            shipTime: string;
+            brand: string;
+            category: string;
+          }
+
+          const routeData: RouteDataTypes = {
+            title: key.model,
+            image: randomBikeImages,
+            price: priceWithComma,
+            description: key.engine,
+            itemLocation: randomLocation,
+            shipTime: randomTimePassed,
+            brand: key.make,
+            category: "Motorbike",
+          };
+
           return (
             <>
+            <Link to={'/details'} state={routeData}>
               <div
                 key={index}
                 className="flex flex-col items-start-gap-3 rounded-sm border border-gray-300 min-w-[300px] cursor-pointer"
@@ -106,9 +138,7 @@ export default function BikeCard() {
                 />
                 <div className="flex flex-col items-start p-4">
                   <div className="flex justify-between items-center w-full">
-                    <p className="font-bold">{`Rs ${Math.floor(
-                      Math.random() * 20000000
-                    )}`}</p>
+                    <p className="font-bold">{`Rs ${priceWithComma}`}</p>
                     <BiHeart className="text-2xl" />
                   </div>
                   <p className="whitespace-break-spaces">{`${key.make}, ${key.model}`}</p>
@@ -118,6 +148,8 @@ export default function BikeCard() {
                   </div>
                 </div>
               </div>
+            </Link>
+
             </>
           );
         })

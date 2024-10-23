@@ -12,7 +12,7 @@ interface Product {
   images: [string, string?, string?];
   shippingInformation: string;
   brand: string,
-  category: string,
+  category: string
 }
 
 interface ResponseTypes {
@@ -29,7 +29,6 @@ export function MobileCard() {
     axios
       .get('https://dummyjson.com/products/category/smartphones')
       .then((response: ResponseTypes) => {
-        console.log(response.data.products)
         setProductData(response.data.products);
         setLoader(false);
       })
