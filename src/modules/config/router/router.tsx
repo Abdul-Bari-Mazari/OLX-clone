@@ -10,11 +10,12 @@ import AllCategoriesIcons from '../../core/components/design/categories/category
 import FeatureImage from '../../core/components/design/featureImage/FeatureImage';
 import CategoriesList from '../../core/components/design/categories/categoryLinks/CategoriesList';
 import MainHeader from '../../core/components/design/header/mainHeader/MainHeader';
+import ScrollToTop from '../../ScrollToTop';
 
 
 export default function AppRouter() {
   return (
-    <BrowserRouter>
+    
       <Routes>
         <Route
           path={'/'}
@@ -36,6 +37,5 @@ export default function AppRouter() {
 
         <Route path='/details' element={<ProductDetails />} />
       </Routes>
-    </BrowserRouter>
   );
 }

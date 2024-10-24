@@ -58,6 +58,7 @@ export default function CarCard() {
             CULTUS,
             SPORTAGE,
           ];
+          
           let randomCarImages: string =
             carImagesArr[Math.floor(Math.random() * carImagesArr.length)];
 

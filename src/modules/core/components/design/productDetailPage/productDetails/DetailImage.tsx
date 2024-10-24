@@ -9,7 +9,7 @@ export default function DetailImage({ image }: DetailImageProps) {
         <img
           src={image}
           alt=""
-          className="object-contain h-full w-1/2 bg-white"
+          className="object-cover h-full w-1/2 bg-white"
         />
       </div>
     </>

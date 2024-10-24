@@ -29,7 +29,7 @@ export default function ProductDetails() {
               shipTime={routeData.state.shipTime}
               timePassed={routeData.state.timePassed}
             />
-            <DetailsBox brand={routeData.state.brand} category={routeData.state.category} />
+            <DetailsBox origin={routeData.state.origin} brand={routeData.state.brand} category={routeData.state.category} />
             <ProductDesciption description={routeData.state.description} />
           </div>
           <UserDetailSidebar
