@@ -19,7 +19,7 @@ export default function ProductDetails() {
         <Divider className="" />
         <CategoriesList />
 
-        <div className="flex gap-3 max-w-7xl mx-auto mt-5">
+        <div className="flex gap-3 flex-wrap lg:flex-nowrap max-w-7xl mx-auto mt-5">
           <div className="flex flex-col">
             <DetailImage image={routeData.state.image} />
             <PriceBox

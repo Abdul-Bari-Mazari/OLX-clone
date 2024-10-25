@@ -24,8 +24,8 @@ export default function PriceBox({
         <div className="flex justify-between items-center">
           <h1 className="text-4xl font-bold">{`Rs ${itemPrice}`}</h1>
           <div className="flex items-center gap-3 text-2xl">
-            <IoShareSocialOutline />
-            <CiHeart />
+            <IoShareSocialOutline className='cursor-pointer' />
+            <CiHeart className='cursor-pointer' />
           </div>
         </div>
         <h1 className="mt-4 font-bold text-xl">{itemName}</h1>

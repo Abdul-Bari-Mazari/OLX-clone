@@ -5,7 +5,7 @@ interface DetailImageProps {
 export default function DetailImage({ image }: DetailImageProps) {
   return (
     <>
-      <div className="bg-black border border-gray-400 flex items-center justify-center w-[850px] h-[480px] rounded">
+      <div className="bg-black border border-gray-400 flex items-center justify-center w-full h-full lg:w-[850px] lg:h-[480px] rounded">
         <img
           src={image}
           alt=""

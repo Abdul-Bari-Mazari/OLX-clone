@@ -2,6 +2,7 @@ import ChatBtn from './ChatBtn';
 import LocationBox from './LocationBox';
 import ShowPhoneBtn from './ShowPhoneBtn';
 import UserProfile from './UserProfile';
+import { RiChat3Line } from 'react-icons/ri';
 
 interface UserDetaulProps {
   itemLocation: string;
@@ -21,7 +22,7 @@ export default function UserDetailSidebar({
           </h2>
           <UserProfile />
           <ShowPhoneBtn />
-          <ChatBtn />
+          <ChatBtn text='Chat' Icon={RiChat3Line} />
         </div>
         <LocationBox itemLocation={itemLocation} />
       </div>
